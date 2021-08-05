@@ -1,0 +1,42 @@
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+ext {
+    // KOTLIN
+    kotlinStdlib = "org.jetbrains.kotlin:kotlin-stdlib:${ext.kotlin_version}"
+
+    // ROOM
+    roomVersion = '2.3.0'
+    room = "androidx.room:room-runtime:$roomVersion"
+    roomCompiler = "androidx.room:room-compiler:$roomVersion"
+
+    // WEBSERVICES
+    retrofitVersion = '2.9.0'
+    okHttpVersion = '3.11.0'
+    retrofitConverterGson = "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    retrofitAdapterRxJava = "com.squareup.retrofit2:adapter-rxjava3:$retrofitVersion"
+
+    // CICERONE
+    cicereoneVersion = '7.1'
+    cicerone = "com.github.terrakok:cicerone:$cicereoneVersion"
+
+    // TOOTHPICK
+    toothPickVersion = '3.1.0'
+    toothPick = "com.github.stephanenicolas.toothpick:ktp:$toothPickVersion"
+    toothPickKapt = "com.github.stephanenicolas.toothpick:toothpick-compiler:$toothPickVersion"
+
+    // MOXY
+    moxyVersion = '2.2.2'
+    moxy = "com.github.moxy-community:moxy:$moxyVersion"
+    moxyKapt = "com.github.moxy-community:moxy-compiler:$moxyVersion"
+
+    //RX
+    rxJavaVersion = '2.2.21'
+    rxAndroidVersion = '2.1.1'
+    rxJava = "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
+    rxAndroid = "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
+}
