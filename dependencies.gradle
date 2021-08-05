@@ -16,7 +16,8 @@ ext {
 
     // WEBSERVICES
     retrofitVersion = '2.9.0'
-    okHttpVersion = '3.11.0'
+    okHttpVersion = '4.9.0'
+    okHttpLogginInterceptorVersion = '4.8.1'
     retrofitConverterGson = "com.squareup.retrofit2:converter-gson:$retrofitVersion"
     retrofitAdapterRxJava = "com.squareup.retrofit2:adapter-rxjava3:$retrofitVersion"
 
