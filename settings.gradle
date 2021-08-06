@@ -1,2 +1,3 @@
 rootProject.name = "GitHubClient"
 include ':app'
+include ':data'
