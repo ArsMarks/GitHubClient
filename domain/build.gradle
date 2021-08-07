@@ -1,0 +1,14 @@
+plugins {
+    id 'kotlin'
+    id 'kotlin-kapt'
+}
+
+dependencies {
+
+    implementation deps.kotlin
+    implementation deps.ktx
+
+    //ToothPick
+    implementation deps.toothPick.toothPick
+    kapt deps.toothPick.compiler
+}
