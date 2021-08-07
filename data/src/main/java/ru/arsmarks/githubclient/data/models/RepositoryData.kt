@@ -12,5 +12,6 @@ class RepositoryData(
     @SerializedName("stargazers_count")
     val starsCount: Int,
     @SerializedName("created_at")
-    val createdAt: String
+    val createdAt: String,
+    val owner: RepositoryOwnerData
 )

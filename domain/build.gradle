@@ -11,4 +11,8 @@ dependencies {
     //ToothPick
     implementation deps.toothPick.toothPick
     kapt deps.toothPick.compiler
+
+    //Rx
+    implementation deps.rx.rxJava2
+    implementation deps.rx.rxAndroid
 }
