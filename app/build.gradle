@@ -46,6 +46,10 @@ dependencies {
     implementation deps.kotlin
     implementation deps.ktx
 
+    //Moxy
+    implementation deps.moxy.moxy
+    kapt deps.moxy.compiler
+
     //OkHttp
     implementation deps.okhttp.okhttp
     implementation deps.okhttp.interceptor

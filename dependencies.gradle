@@ -19,6 +19,7 @@ ext.versions = [
         lifecyclektx        : '2.2.0',
         lifecyclelivedataktx: '2.3.1',
 
+        moxy                : '2.2.2',
         toothPick           : '3.1.0',
         cicerone            : '7.1',
         timber              : '4.7.1',
@@ -62,6 +63,11 @@ ext.deps = [
                 'reactivestreams': "androidx.lifecycle:lifecycle-reactivestreams-ktx:${versions.lifecyclelivedataktx}",
                 'livedata'       : "androidx.lifecycle:lifecycle-livedata-ktx:${versions.lifecyclelivedataktx}",
                 'livedatacore'   : "androidx.lifecycle:lifecycle-livedata-core-ktx:${versions.lifecyclektx}",
+        ],
+
+        moxy              : [
+                'moxy'    : "com.github.moxy-community:moxy:${versions.moxy}",
+                'compiler': "com.github.moxy-community:moxy-compiler:${versions.moxy}",
         ],
 
         toothPick         : [
