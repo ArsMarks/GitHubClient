@@ -1,0 +1,6 @@
+package ru.arsmarks.githubclient.search
+
+import androidx.fragment.app.Fragment
+
+class SearchFragment : Fragment() {
+}

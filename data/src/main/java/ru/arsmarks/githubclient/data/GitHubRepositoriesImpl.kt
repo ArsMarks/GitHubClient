@@ -13,7 +13,7 @@ class GitHubRepositoriesImpl @Inject constructor(
         TODO("Not yet implemented")
     }
 
-    override fun getSavedRepos(): Observable<Repository> {
+    override fun getSavedRepos(): Observable<List<Repository>> {
         TODO("Not yet implemented")
     }
 }
