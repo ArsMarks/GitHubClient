@@ -5,7 +5,6 @@ import ru.arsmarks.githubclient.domain.domainEntity.Repository
 import javax.inject.Inject
 
 interface SavedReposUseCase {
-
     operator fun invoke(): Observable<List<Repository>>
 }
 

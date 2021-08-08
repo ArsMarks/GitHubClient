@@ -10,10 +10,10 @@ class GitHubRepositoriesImpl @Inject constructor(
     private val searchApi: SearchApi
 ) : GitHubRepositories {
     override fun searchRepos(name: String): Single<List<Repository>> {
-        TODO("Not yet implemented")
+        return Single.just(listOf())
     }
 
     override fun getSavedRepos(): Observable<List<Repository>> {
-        TODO("Not yet implemented")
+        return Observable.just(listOf())
     }
 }

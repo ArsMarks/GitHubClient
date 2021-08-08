@@ -1,4 +1,4 @@
-package ru.arsmarks.githubclient.di
+package ru.arsmarks.githubclient.di.provider
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

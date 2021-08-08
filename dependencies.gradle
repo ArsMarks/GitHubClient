@@ -22,6 +22,7 @@ ext.versions = [
         moxy                : '2.2.2',
         toothPick           : '3.1.0',
         cicerone            : '7.1',
+        viewBindingDelegate : '1.4.4',
         timber              : '4.7.1',
         retrofit            : '2.9.0',
         okhttp              : '4.9.0',
@@ -40,22 +41,22 @@ ext.versions = [
 ]
 
 ext.deps = [
-        plugins           : [
+        plugins            : [
                 'toolsgradle': "com.android.tools.build:gradle:${versions.toolsgradle}",
                 'kotlin'     : "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}",
         ],
 
-        okhttp            : [
+        okhttp             : [
                 'okhttp'     : "com.squareup.okhttp3:okhttp:${versions.okhttp}",
                 'interceptor': "com.squareup.okhttp3:logging-interceptor:${versions.okhttp}"
         ],
 
-        retrofit          : [
+        retrofit           : [
                 'retrofit' : "com.squareup.retrofit2:retrofit:${versions.retrofit}",
                 'converter': "com.squareup.retrofit2:converter-gson:${versions.retrofit}"
         ],
 
-        lifecycle         : [
+        lifecycle          : [
                 'common'         : "androidx.lifecycle:lifecycle-common-java8:${versions.lifecycle}",
                 'extensions'     : "androidx.lifecycle:lifecycle-extensions:${versions.lifecyclektx}",
                 'viewmodel'      : "androidx.lifecycle:lifecycle-viewmodel-ktx:${versions.lifecyclektx}",
@@ -65,50 +66,52 @@ ext.deps = [
                 'livedatacore'   : "androidx.lifecycle:lifecycle-livedata-core-ktx:${versions.lifecyclektx}",
         ],
 
-        moxy              : [
+        moxy               : [
                 'moxy'       : "com.github.moxy-community:moxy:${versions.moxy}",
                 'compiler'   : "com.github.moxy-community:moxy-compiler:${versions.moxy}",
                 'moxyAndroid': "com.github.moxy-community:moxy-androidx:${versions.moxy}",
         ],
 
-        toothPick         : [
+        toothPick          : [
                 'toothPick': "com.github.stephanenicolas.toothpick:ktp:${versions.toothPick}",
                 'compiler' : "com.github.stephanenicolas.toothpick:toothpick-compiler:${versions.toothPick}",
         ],
 
-        room              : [
+        room               : [
                 'runtime' : "androidx.room:room-runtime:${versions.room}",
                 'compiler': "androidx.room:room-compiler:${versions.room}",
                 'ktx'     : "androidx.room:room-ktx:${versions.room}",
         ],
 
-        rx                : [
+        rx                 : [
                 'rxAndroid': "io.reactivex.rxjava2:rxandroid:${versions.rxAndroid}",
                 'rxJava2'  : "io.reactivex.rxjava2:rxjava:${versions.rxJava}",
         ],
 
-        cicerone          : "com.github.terrakok:cicerone:${versions.cicerone}",
+        cicerone           : "com.github.terrakok:cicerone:${versions.cicerone}",
 
-        timber            : "com.jakewharton.timber:timber:${versions.timber}",
+        timber             : "com.jakewharton.timber:timber:${versions.timber}",
 
-        gson              : "com.google.code.gson:gson:${versions.gson}",
+        viewBindingDelegate: "com.github.kirich1409:viewbindingpropertydelegate:${versions.viewBindingDelegate}",
 
-        glide             : "com.github.bumptech.glide:glide:${versions.glide}",
+        gson               : "com.google.code.gson:gson:${versions.gson}",
 
-        fragment          : "androidx.fragment:fragment-ktx:${versions.fragment}",
+        glide              : "com.github.bumptech.glide:glide:${versions.glide}",
 
-        kotlin            : "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}",
+        fragment           : "androidx.fragment:fragment-ktx:${versions.fragment}",
 
-        ktx               : "androidx.core:core-ktx:${versions.ktx}",
+        kotlin             : "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}",
 
-        material          : "com.google.android.material:material:${versions.material}",
+        ktx                : "androidx.core:core-ktx:${versions.ktx}",
 
-        swiperefreshlayout: "androidx.swiperefreshlayout:swiperefreshlayout:${versions.swiperefreshlayout}",
+        material           : "com.google.android.material:material:${versions.material}",
 
-        constraintlayout  : "androidx.constraintlayout:constraintlayout:${versions.constraintlayout}",
+        swiperefreshlayout : "androidx.swiperefreshlayout:swiperefreshlayout:${versions.swiperefreshlayout}",
 
-        appcompat         : "androidx.appcompat:appcompat:${versions.androidx}",
+        constraintlayout   : "androidx.constraintlayout:constraintlayout:${versions.constraintlayout}",
 
-        junit             : "androidx.test.ext:junit:${versions.junit}",
-        espresso          : "androidx.test.espresso:espresso-core:${versions.espresso}"
+        appcompat          : "androidx.appcompat:appcompat:${versions.androidx}",
+
+        junit              : "androidx.test.ext:junit:${versions.junit}",
+        espresso           : "androidx.test.espresso:espresso-core:${versions.espresso}"
 ]

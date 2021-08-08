@@ -1,4 +1,4 @@
-package ru.arsmarks.githubclient.di
+package ru.arsmarks.githubclient.di.provider
 
 import com.google.gson.Gson
 import okhttp3.OkHttpClient

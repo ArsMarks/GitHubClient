@@ -1,10 +1,13 @@
 package ru.arsmarks.githubclient
 
 import android.app.Application
+import ru.arsmarks.githubclient.di.AppModule
+import ru.arsmarks.githubclient.di.DI
 import ru.arsmarks.githubclient.di.NetworkModule
 import timber.log.Timber
 import toothpick.Scope
 import toothpick.Toothpick
+import toothpick.configuration.Configuration
 import toothpick.ktp.KTP
 
 class BaseApp : Application() {
@@ -12,14 +15,19 @@ class BaseApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        Toothpick.openRootScope()
+        initDi()
         initLog()
     }
 
     private fun initDi() {
-        scope = KTP.openScope(this).installModules(
+        scope = KTP.openScope(DI.APP_SCOPE).installModules(
+            AppModule(),
             NetworkModule()
         )
+        if (BuildConfig.DEBUG)
+            KTP.setConfiguration(Configuration.forDevelopment())
+        else
+            KTP.setConfiguration(Configuration.forProduction())
     }
 
     private fun initLog() {

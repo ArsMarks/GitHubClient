@@ -1,4 +1,4 @@
-package ru.arsmarks.githubclient.di
+package ru.arsmarks.githubclient.di.provider
 
 import retrofit2.Retrofit
 import ru.arsmarks.githubclient.data.SearchApi
