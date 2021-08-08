@@ -6,13 +6,13 @@ import javax.inject.Inject
 
 interface SavedReposUseCase {
 
-    operator fun invoke(): Observable<Repository>
+    operator fun invoke(): Observable<List<Repository>>
 }
 
 class SavedRepositoryUseCaseImpl @Inject constructor(
     private val gitHubRepositories: GitHubRepositories
 ) : SavedReposUseCase {
-    override fun invoke(): Observable<Repository> {
+    override fun invoke(): Observable<List<Repository>> {
         return gitHubRepositories.getSavedRepos()
     }
 }

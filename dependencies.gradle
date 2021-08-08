@@ -66,8 +66,9 @@ ext.deps = [
         ],
 
         moxy              : [
-                'moxy'    : "com.github.moxy-community:moxy:${versions.moxy}",
-                'compiler': "com.github.moxy-community:moxy-compiler:${versions.moxy}",
+                'moxy'       : "com.github.moxy-community:moxy:${versions.moxy}",
+                'compiler'   : "com.github.moxy-community:moxy-compiler:${versions.moxy}",
+                'moxyAndroid': "com.github.moxy-community:moxy-androidx:${versions.moxy}",
         ],
 
         toothPick         : [

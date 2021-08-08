@@ -8,5 +8,5 @@ interface GitHubRepositories {
 
     fun searchRepos(name: String): Single<List<Repository>>
 
-    fun getSavedRepos(): Observable<Repository>
+    fun getSavedRepos(): Observable<List<Repository>>
 }
