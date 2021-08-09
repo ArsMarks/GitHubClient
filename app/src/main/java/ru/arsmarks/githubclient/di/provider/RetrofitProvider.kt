@@ -3,6 +3,7 @@ package ru.arsmarks.githubclient.di.provider
 import com.google.gson.Gson
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import ru.arsmarks.githubclient.BuildConfig
 import toothpick.InjectConstructor
@@ -18,6 +19,7 @@ class RetrofitProvider(
     override fun get(): Retrofit = Retrofit
         .Builder()
         .addConverterFactory(GsonConverterFactory.create(gson))
+        .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
         .client(okHttpClient)
         .baseUrl(BASE_URL)
         .build()

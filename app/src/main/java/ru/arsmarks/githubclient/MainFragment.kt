@@ -14,8 +14,7 @@ class MainFragment : BaseFragment(R.layout.fragment_main) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        if (savedInstanceState == null)
-            configureTabs()
+        configureTabs()
     }
 
     private fun configureTabs() {
