@@ -1,6 +1,6 @@
 package ru.arsmarks.githubclient.domain.domainEntity
 
-class Repository(
+data class Repository(
     val id: Int,
     val name: String,
     val fullName: String,
