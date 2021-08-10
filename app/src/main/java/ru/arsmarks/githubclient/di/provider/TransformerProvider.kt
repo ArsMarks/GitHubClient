@@ -1,12 +1,12 @@
 package ru.arsmarks.githubclient.di.provider
 
-import ru.arsmarks.githubclient.data.SearchTransformer
+import ru.arsmarks.githubclient.data.SearchMapper
 import toothpick.InjectConstructor
 import javax.inject.Provider
 
 @InjectConstructor
-class TransformerProvider : Provider<SearchTransformer>{
-    override fun get(): SearchTransformer {
-        return SearchTransformer()
+class TransformerProvider : Provider<SearchMapper>{
+    override fun get(): SearchMapper {
+        return SearchMapper()
     }
 }

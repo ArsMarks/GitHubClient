@@ -1,5 +1,5 @@
 package ru.arsmarks.githubclient.data
 
-interface BaseTransformer<T, R> {
+interface BaseMapper<T, R> {
     fun transform(data: T): R
 }

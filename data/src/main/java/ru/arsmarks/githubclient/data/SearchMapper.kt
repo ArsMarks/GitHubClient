@@ -5,7 +5,7 @@ import ru.arsmarks.githubclient.domain.domainEntity.Repository
 import java.text.SimpleDateFormat
 import java.util.*
 
-class SearchTransformer : BaseTransformer<RepositoryData, Repository> {
+class SearchMapper : BaseMapper<RepositoryData, Repository> {
     override fun transform(data: RepositoryData): Repository = with(data) {
         val sdf = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'")
         val date: Date = sdf.parse(createdAt)

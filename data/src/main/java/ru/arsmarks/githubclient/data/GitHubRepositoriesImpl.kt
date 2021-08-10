@@ -9,14 +9,14 @@ import javax.inject.Inject
 
 class GitHubRepositoriesImpl @Inject constructor(
     private val searchApi: SearchApi,
-    private val searchTransformer: SearchTransformer
+    private val searchMapper: SearchMapper
 ) : GitHubRepositories {
     override fun searchRepos(name: String): Single<List<Repository>> {
         return searchApi.searchRepositories("$name in:name")
             .observeOn(Schedulers.io())
             .map {
                 it.items.map {
-                    searchTransformer.transform(it)
+                    searchMapper.transform(it)
                 }
             }
     }
