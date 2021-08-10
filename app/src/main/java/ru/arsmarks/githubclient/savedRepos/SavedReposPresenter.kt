@@ -6,13 +6,13 @@ import io.reactivex.observers.DisposableObserver
 import io.reactivex.schedulers.Schedulers
 import moxy.InjectViewState
 import moxy.MvpPresenter
-import ru.arsmarks.githubclient.domain.SavedReposUseCase
+import ru.arsmarks.githubclient.domain.GetFavoriteReposUseCase
 import ru.arsmarks.githubclient.domain.domainEntity.Repository
 import javax.inject.Inject
 
 @InjectViewState
 class SavedReposPresenter @Inject constructor(
-    private val savedReposUseCase: SavedReposUseCase
+    private val getFavoriteReposUseCase: GetFavoriteReposUseCase
 ) : MvpPresenter<SavedReposView>() {
     private val TAG = this::class.simpleName
     private val compositeDisposable = CompositeDisposable()
@@ -20,7 +20,7 @@ class SavedReposPresenter @Inject constructor(
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
         compositeDisposable.add(
-            savedReposUseCase().subscribeOn(Schedulers.io())
+            getFavoriteReposUseCase().subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(object : DisposableObserver<List<Repository>>() {
                     override fun onNext(response: List<Repository>) {

@@ -14,7 +14,7 @@ class SearchTransformer : BaseTransformer<RepositoryData, Repository> {
             id = id,
             name = name,
             fullName = fullName,
-            description = "",
+            description = description,
             avatarUrl = owner.avatarUrl,
             forksCount = forksCount,
             starCount = starsCount,

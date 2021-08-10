@@ -4,13 +4,13 @@ import io.reactivex.Observable
 import ru.arsmarks.githubclient.domain.domainEntity.Repository
 import javax.inject.Inject
 
-interface SavedReposUseCase {
+interface GetFavoriteReposUseCase {
     operator fun invoke(): Observable<List<Repository>>
 }
 
-class SavedRepositoryUseCaseImpl @Inject constructor(
+class GetFavoriteRepositoryUseCaseImpl @Inject constructor(
     private val gitHubRepositories: GitHubRepositories
-) : SavedReposUseCase {
+) : GetFavoriteReposUseCase {
     override fun invoke(): Observable<List<Repository>> {
         return gitHubRepositories.getSavedRepos()
     }

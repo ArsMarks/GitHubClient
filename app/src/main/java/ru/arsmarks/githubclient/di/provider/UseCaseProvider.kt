@@ -16,8 +16,8 @@ class SearchUseCaseProvider constructor(
 @InjectConstructor
 class SavedUseCaseProvider constructor(
     private val gitHubRepositories: GitHubRepositories
-) : Provider<SavedReposUseCase> {
-    override fun get(): SavedReposUseCase {
-        return SavedRepositoryUseCaseImpl(gitHubRepositories)
+) : Provider<GetFavoriteReposUseCase> {
+    override fun get(): GetFavoriteReposUseCase {
+        return GetFavoriteRepositoryUseCaseImpl(gitHubRepositories)
     }
 }

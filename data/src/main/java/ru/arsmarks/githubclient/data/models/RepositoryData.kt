@@ -13,5 +13,6 @@ class RepositoryData(
     val starsCount: Int,
     @SerializedName("created_at")
     val createdAt: String,
+    val description: String,
     val owner: RepositoryOwnerData
 )

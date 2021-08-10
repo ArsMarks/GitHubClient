@@ -1,14 +1,15 @@
 package ru.arsmarks.githubclient.overview
 
 import moxy.MvpAppCompatFragment
+import ru.arsmarks.githubclient.domain.domainEntity.Repository
 import ru.arsmarks.githubclient.extensions.FragmentArgumentDelegate
 
 class OverViewFragment : MvpAppCompatFragment() {
-    private var repositoryId: Int by FragmentArgumentDelegate()
+    private var repository: Repository by FragmentArgumentDelegate()
 
     companion object {
-        fun newInstance(repositoryId: Int): OverViewFragment = OverViewFragment().apply {
-            this.repositoryId = repositoryId
+        fun newInstance(repository: Repository): OverViewFragment = OverViewFragment().apply {
+            this.repository = repository
         }
     }
 }

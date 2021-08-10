@@ -57,4 +57,9 @@ dependencies {
     //ToothPick
     implementation deps.toothPick.toothPick
     kapt deps.toothPick.compiler
+
+    //Room
+    implementation deps.room.runtime
+    implementation deps.room.ktx
+    kapt deps.room.compiler
 }

@@ -4,6 +4,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentFactory
 import com.github.terrakok.cicerone.androidx.FragmentScreen
 import ru.arsmarks.githubclient.MainFragment
+import ru.arsmarks.githubclient.domain.domainEntity.Repository
 import ru.arsmarks.githubclient.overview.OverViewFragment
 import ru.arsmarks.githubclient.savedRepos.SavedReposFragment
 import ru.arsmarks.githubclient.search.SearchFragment
@@ -24,8 +25,8 @@ object Screens {
             SavedReposFragment()
     }
 
-    class OverView(private val id: Int) : FragmentScreen {
+    class OverView(private val repository: Repository) : FragmentScreen {
         override fun createFragment(factory: FragmentFactory): Fragment =
-            OverViewFragment.newInstance(id)
+            OverViewFragment.newInstance(repository)
     }
 }
