@@ -1,6 +1,7 @@
 package ru.arsmarks.githubclient
 
 import android.app.Application
+import ru.arsmarks.githubclient.data.persistence.di.DataModule
 import ru.arsmarks.githubclient.di.AppModule
 import ru.arsmarks.githubclient.di.DI
 import ru.arsmarks.githubclient.di.NetworkModule
@@ -21,8 +22,9 @@ class BaseApp : Application() {
 
     private fun initDi() {
         scope = KTP.openScope(DI.APP_SCOPE).installModules(
-            AppModule(),
-            NetworkModule()
+            AppModule(this@BaseApp),
+            NetworkModule(),
+            DataModule()
         )
         if (BuildConfig.DEBUG)
             KTP.setConfiguration(Configuration.forDevelopment())

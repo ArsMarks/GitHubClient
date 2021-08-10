@@ -8,9 +8,11 @@ import moxy.presenter.InjectPresenter
 import moxy.presenter.ProvidePresenter
 import ru.arsmarks.githubclient.R
 import ru.arsmarks.githubclient.databinding.FragmentSearchBinding
+import ru.arsmarks.githubclient.di.provider.FavoriteUseCaseProvider
 import ru.arsmarks.githubclient.di.provider.SearchUseCaseProvider
-import ru.arsmarks.githubclient.domain.SearchReposUseCase
 import ru.arsmarks.githubclient.domain.domainEntity.Repository
+import ru.arsmarks.githubclient.domain.usecases.FavoriteUseCase
+import ru.arsmarks.githubclient.domain.usecases.SearchReposUseCase
 import ru.arsmarks.githubclient.extensions.hide
 import ru.arsmarks.githubclient.extensions.show
 import ru.arsmarks.githubclient.ui.BaseFragment
@@ -27,6 +29,7 @@ class SearchFragment : BaseFragment(R.layout.fragment_search), MvpSearchView,
         scope.installModules(object : Module() {
             init {
                 bind<SearchReposUseCase>().toProvider(SearchUseCaseProvider::class)
+                bind<FavoriteUseCase>().toProvider(FavoriteUseCaseProvider::class)
             }
         })
     }
@@ -74,7 +77,7 @@ class SearchFragment : BaseFragment(R.layout.fragment_search), MvpSearchView,
             },
             object : ReposAdapter.FavoriteRepositoryListener {
                 override fun onFavoriteClicked(repository: Repository) {
-
+                    searchReposPresenter.favoriteRepo(repository)
                 }
             }
         )

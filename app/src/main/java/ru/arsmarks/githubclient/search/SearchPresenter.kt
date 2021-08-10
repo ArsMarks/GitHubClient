@@ -7,14 +7,16 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import moxy.InjectViewState
 import moxy.MvpPresenter
-import ru.arsmarks.githubclient.domain.SearchReposUseCase
 import ru.arsmarks.githubclient.domain.domainEntity.Repository
+import ru.arsmarks.githubclient.domain.usecases.FavoriteUseCase
+import ru.arsmarks.githubclient.domain.usecases.SearchReposUseCase
 import ru.arsmarks.githubclient.navigation.Screens
 import javax.inject.Inject
 
 @InjectViewState
 class SearchPresenter @Inject constructor(
     private val searchReposUseCase: SearchReposUseCase,
+    private val favoriteUseCase: FavoriteUseCase,
     private val router: Router
 ) : MvpPresenter<MvpSearchView>() {
     private val TAG = this::class.simpleName
@@ -39,6 +41,19 @@ class SearchPresenter @Inject constructor(
                     viewState.stopLoading()
                 })
         )
+    }
+
+    fun favoriteRepo(repository: Repository) {
+        compositeDisposable.add(
+            favoriteUseCase(repository).subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({
+
+                }, {
+
+                })
+        )
+
     }
 
     fun openOverView(repository: Repository) {

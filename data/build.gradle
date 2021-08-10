@@ -61,5 +61,6 @@ dependencies {
     //Room
     implementation deps.room.runtime
     implementation deps.room.ktx
+    implementation deps.room.roomRxJava2
     kapt deps.room.compiler
 }

@@ -12,13 +12,13 @@ class SearchMapper : BaseMapper<RepositoryData, Repository> {
         val millis: Long = date.time
         Repository(
             id = id,
-            name = name,
             fullName = fullName,
             description = description,
             avatarUrl = owner.avatarUrl,
             forksCount = forksCount,
             starCount = starsCount,
-            createdAt = millis
+            createdAt = millis,
+            isFavorite = false
         )
     }
 }

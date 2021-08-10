@@ -1,6 +1,7 @@
 package ru.arsmarks.githubclient.di.provider
 
-import ru.arsmarks.githubclient.domain.*
+import ru.arsmarks.githubclient.domain.GitHubRepositories
+import ru.arsmarks.githubclient.domain.usecases.*
 import toothpick.InjectConstructor
 import javax.inject.Provider
 
@@ -19,5 +20,14 @@ class SavedUseCaseProvider constructor(
 ) : Provider<GetFavoriteReposUseCase> {
     override fun get(): GetFavoriteReposUseCase {
         return GetFavoriteRepositoryUseCaseImpl(gitHubRepositories)
+    }
+}
+
+@InjectConstructor
+class FavoriteUseCaseProvider constructor(
+    private val gitHubRepositories: GitHubRepositories
+) : Provider<FavoriteUseCase> {
+    override fun get(): FavoriteUseCase {
+        return FavoriteRepoUseCaseImpl(gitHubRepositories)
     }
 }

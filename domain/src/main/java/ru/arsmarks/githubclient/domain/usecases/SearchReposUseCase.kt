@@ -1,6 +1,7 @@
-package ru.arsmarks.githubclient.domain
+package ru.arsmarks.githubclient.domain.usecases
 
 import io.reactivex.Single
+import ru.arsmarks.githubclient.domain.GitHubRepositories
 import ru.arsmarks.githubclient.domain.domainEntity.Repository
 import javax.inject.Inject
 
