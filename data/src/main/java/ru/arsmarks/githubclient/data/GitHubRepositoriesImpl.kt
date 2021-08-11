@@ -2,6 +2,7 @@ package ru.arsmarks.githubclient.data
 
 import io.reactivex.Completable
 import io.reactivex.Flowable
+import io.reactivex.Observable
 import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
 import ru.arsmarks.githubclient.data.mappers.EntityMapper
@@ -20,39 +21,45 @@ class GitHubRepositoriesImpl @Inject constructor(
     private val entityMapper: EntityMapper,
     private val repoDao: RepoDao
 ) : GitHubRepositories {
+
     override fun searchRepos(name: String): Single<List<Repository>> {
         return searchApi.searchRepositories("$name in:name")
-            .observeOn(Schedulers.io())
             .map {
-                it.items.map {
-                    searchMapper.transform(it)
-                }
+                it.items.map { searchMapper.transform(it) }
             }
+            .toObservable()
+            .flatMap { t -> Observable.fromIterable(t) }
+            .map { repository ->
+                if (repoDao.isRowIsExist(repository.id)) {
+                    repository.apply {
+                        isFavorite = true
+                    }
+                } else
+                    repository
+            }.toList()
+            .observeOn(Schedulers.io())
     }
 
     override fun getSavedRepos(): Flowable<List<Repository>> {
         return repoDao.getAll()
-            .map {
-                it.map { favoriteMapper.transform(it) }
+            .map { reposList ->
+                reposList.map { favoriteMapper.transform(it) }
             }
     }
 
-    override fun deleteRepository(repository: Repository): Completable =
-        Single.fromCallable {
-            repoDao.delete(entityMapper.transform(repository)) == 1
-        }.flatMapCompletable {
-            if (it) {
+    override fun deleteRepository(repository: Repository): Completable {
+        return Completable.fromAction {
+            repoDao.delete(repository.id)
+        }.subscribeOn(Schedulers.io())
+    }
+
+
+    override fun addRepository(repository: Repository): Completable {
+        return repoDao.insert(entityMapper.transform(repository))
+            .subscribeOn(Schedulers.io())
+            .flatMapCompletable {
                 Completable.complete()
-            } else {
-                Completable.error(RuntimeException("Persistence error"))
             }
-        }
-
-
-    override fun addRepository(repository: Repository): Completable =
-        Single.fromCallable {
-            repoDao.insert(entityMapper.transform(repository))
-        }.flatMapCompletable {
-            Completable.complete()
-        }
+    }
 }
+

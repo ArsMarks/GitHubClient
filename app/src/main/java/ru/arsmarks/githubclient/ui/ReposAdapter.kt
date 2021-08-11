@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import ru.arsmarks.githubclient.R
 import ru.arsmarks.githubclient.databinding.RepoItemBinding
 import ru.arsmarks.githubclient.domain.domainEntity.Repository
 
@@ -34,9 +35,14 @@ class ReposAdapter(
             binding.root.setOnClickListener {
                 repositoryListener.onRepositoryClicked(repository)
             }
+            if (repository.isFavorite)
+                binding.imageFavoriteRepo.setImageResource(R.drawable.ic_favorite)
+            else
+                binding.imageFavoriteRepo.setImageResource(R.drawable.ic_non_favorite)
             binding.textRepoName.text = repository.fullName
             binding.textRepoDescription.text = repository.description
             binding.imageFavoriteRepo.setOnClickListener {
+                repository.isFavorite = !repository.isFavorite
                 favoriteListener.onFavoriteClicked(repository)
             }
         }

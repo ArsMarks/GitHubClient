@@ -78,6 +78,7 @@ class SearchFragment : BaseFragment(R.layout.fragment_search), MvpSearchView,
             object : ReposAdapter.FavoriteRepositoryListener {
                 override fun onFavoriteClicked(repository: Repository) {
                     searchReposPresenter.favoriteRepo(repository)
+                    reposAdapter?.notifyDataSetChanged()
                 }
             }
         )

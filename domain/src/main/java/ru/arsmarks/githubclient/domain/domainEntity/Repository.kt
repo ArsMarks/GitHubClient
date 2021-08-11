@@ -8,5 +8,5 @@ data class Repository(
     val forksCount: Int,
     val starCount: Int,
     val createdAt: Long,
-    val isFavorite: Boolean
+    var isFavorite: Boolean
 )

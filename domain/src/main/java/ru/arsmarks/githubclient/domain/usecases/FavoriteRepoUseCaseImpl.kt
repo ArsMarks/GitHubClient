@@ -9,7 +9,7 @@ class FavoriteRepoUseCaseImpl @Inject constructor(
     private val gitHubRepositories: GitHubRepositories
 ) : FavoriteUseCase {
     override fun invoke(repository: Repository): Completable {
-        return if (repository.isFavorite) {
+        return if (!repository.isFavorite) {
             gitHubRepositories.deleteRepository(repository)
         } else {
             gitHubRepositories.addRepository(repository)

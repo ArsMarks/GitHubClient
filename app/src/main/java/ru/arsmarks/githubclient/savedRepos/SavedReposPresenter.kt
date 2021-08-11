@@ -1,8 +1,8 @@
 package ru.arsmarks.githubclient.savedRepos
 
+import android.util.Log
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.schedulers.Schedulers
 import moxy.InjectViewState
 import moxy.MvpPresenter
 import ru.arsmarks.githubclient.domain.domainEntity.Repository
@@ -21,10 +21,11 @@ class SavedReposPresenter @Inject constructor(
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
         compositeDisposable.add(
-            getFavoriteReposUseCase().subscribeOn(Schedulers.io())
+            getFavoriteReposUseCase()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
                     {
+                        Log.d(TAG, "saved list repository: ${it.size}");
                         if (it.isEmpty()) {
                             viewState.showEmptyRepos()
                         } else {
@@ -38,7 +39,11 @@ class SavedReposPresenter @Inject constructor(
     }
 
     fun favoriteRepo(repository: Repository) {
-        favoriteUseCase(repository)
+        compositeDisposable.add(favoriteUseCase(repository).observeOn(AndroidSchedulers.mainThread())
+            .subscribe {
+
+            }
+        )
     }
 
     override fun onDestroy() {
