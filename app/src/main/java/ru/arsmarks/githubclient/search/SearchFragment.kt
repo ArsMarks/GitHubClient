@@ -8,8 +8,8 @@ import moxy.presenter.InjectPresenter
 import moxy.presenter.ProvidePresenter
 import ru.arsmarks.githubclient.R
 import ru.arsmarks.githubclient.databinding.FragmentSearchBinding
-import ru.arsmarks.githubclient.di.provider.FavoriteUseCaseProvider
-import ru.arsmarks.githubclient.di.provider.SearchUseCaseProvider
+import ru.arsmarks.githubclient.domain.di.FavoriteUseCaseProvider
+import ru.arsmarks.githubclient.domain.di.SearchUseCaseProvider
 import ru.arsmarks.githubclient.domain.domainEntity.Repository
 import ru.arsmarks.githubclient.domain.usecases.FavoriteUseCase
 import ru.arsmarks.githubclient.domain.usecases.SearchReposUseCase

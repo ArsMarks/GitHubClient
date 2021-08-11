@@ -1,18 +1,18 @@
-package ru.arsmarks.githubclient.di.provider
+package ru.arsmarks.githubclient.data.remote.di.provider
 
 import com.google.gson.Gson
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
-import ru.arsmarks.githubclient.BuildConfig
+import ru.arsmarks.githubclient.data.BuildConfig
 import toothpick.InjectConstructor
 import javax.inject.Provider
 
 private const val BASE_URL = BuildConfig.GitHubURL
 
 @InjectConstructor
-class RetrofitProvider(
+internal class RetrofitProvider(
     private val okHttpClient: OkHttpClient,
     private val gson: Gson
 ) : Provider<Retrofit> {

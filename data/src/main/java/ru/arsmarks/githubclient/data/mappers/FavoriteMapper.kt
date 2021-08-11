@@ -1,6 +1,5 @@
-package ru.arsmarks.githubclient.data.persistence
+package ru.arsmarks.githubclient.data.mappers
 
-import ru.arsmarks.githubclient.data.BaseMapper
 import ru.arsmarks.githubclient.data.persistence.entity.RepoEntity
 import ru.arsmarks.githubclient.domain.domainEntity.Repository
 

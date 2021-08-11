@@ -6,7 +6,7 @@ import toothpick.InjectConstructor
 import javax.inject.Provider
 
 @InjectConstructor
-class RepoDaoProvider(
+internal class RepoDaoProvider(
     private val appDatabase: AppDatabase
 ) : Provider<RepoDao> {
     override fun get(): RepoDao {

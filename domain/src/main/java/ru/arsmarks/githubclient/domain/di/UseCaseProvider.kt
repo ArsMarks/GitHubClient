@@ -1,4 +1,4 @@
-package ru.arsmarks.githubclient.di.provider
+package ru.arsmarks.githubclient.domain.di
 
 import ru.arsmarks.githubclient.domain.GitHubRepositories
 import ru.arsmarks.githubclient.domain.usecases.*

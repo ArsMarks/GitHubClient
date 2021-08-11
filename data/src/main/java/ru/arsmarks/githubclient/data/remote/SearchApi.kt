@@ -1,9 +1,9 @@
-package ru.arsmarks.githubclient.data
+package ru.arsmarks.githubclient.data.remote
 
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Query
-import ru.arsmarks.githubclient.data.models.SearchResponse
+import ru.arsmarks.githubclient.data.remote.models.SearchResponse
 
 interface SearchApi {
     @GET("/search/repositories")

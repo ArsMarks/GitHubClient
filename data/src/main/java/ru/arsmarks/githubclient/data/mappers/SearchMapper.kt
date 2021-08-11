@@ -1,6 +1,6 @@
-package ru.arsmarks.githubclient.data
+package ru.arsmarks.githubclient.data.mappers
 
-import ru.arsmarks.githubclient.data.models.RepositoryData
+import ru.arsmarks.githubclient.data.remote.models.RepositoryData
 import ru.arsmarks.githubclient.domain.domainEntity.Repository
 import java.text.SimpleDateFormat
 import java.util.*

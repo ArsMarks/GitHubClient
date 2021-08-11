@@ -1,4 +1,4 @@
-package ru.arsmarks.githubclient.data.models
+package ru.arsmarks.githubclient.data.remote.models
 
 class SearchResponse(
     val items: List<RepositoryData>

@@ -4,9 +4,11 @@ import io.reactivex.Completable
 import io.reactivex.Flowable
 import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
-import ru.arsmarks.githubclient.data.persistence.EntityMapper
-import ru.arsmarks.githubclient.data.persistence.FavoriteMapper
+import ru.arsmarks.githubclient.data.mappers.EntityMapper
+import ru.arsmarks.githubclient.data.mappers.FavoriteMapper
+import ru.arsmarks.githubclient.data.mappers.SearchMapper
 import ru.arsmarks.githubclient.data.persistence.dao.RepoDao
+import ru.arsmarks.githubclient.data.remote.SearchApi
 import ru.arsmarks.githubclient.domain.GitHubRepositories
 import ru.arsmarks.githubclient.domain.domainEntity.Repository
 import javax.inject.Inject

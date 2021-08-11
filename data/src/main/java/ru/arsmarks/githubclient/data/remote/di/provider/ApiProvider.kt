@@ -1,12 +1,12 @@
-package ru.arsmarks.githubclient.di.provider
+package ru.arsmarks.githubclient.data.remote.di.provider
 
 import retrofit2.Retrofit
-import ru.arsmarks.githubclient.data.SearchApi
+import ru.arsmarks.githubclient.data.remote.SearchApi
 import toothpick.InjectConstructor
 import javax.inject.Provider
 
 @InjectConstructor
-class ApiProvider(
+internal class ApiProvider(
     private val retrofit: Retrofit
 ) : Provider<SearchApi> {
     override fun get(): SearchApi = retrofit.create(SearchApi::class.java)

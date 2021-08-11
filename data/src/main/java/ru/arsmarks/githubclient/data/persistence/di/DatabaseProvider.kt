@@ -8,7 +8,7 @@ import toothpick.InjectConstructor
 import javax.inject.Provider
 
 @InjectConstructor
-class DatabaseProvider(
+internal class DatabaseProvider(
     private val context: Context
 ) : Provider<AppDatabase> {
     override fun get(): AppDatabase {

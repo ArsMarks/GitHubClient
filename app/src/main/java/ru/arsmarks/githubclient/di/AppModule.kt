@@ -4,13 +4,13 @@ import android.content.Context
 import com.github.terrakok.cicerone.Cicerone
 import com.github.terrakok.cicerone.NavigatorHolder
 import com.github.terrakok.cicerone.Router
-import ru.arsmarks.githubclient.data.SearchMapper
-import ru.arsmarks.githubclient.data.persistence.EntityMapper
-import ru.arsmarks.githubclient.data.persistence.FavoriteMapper
-import ru.arsmarks.githubclient.di.provider.EntityMapperProvider
-import ru.arsmarks.githubclient.di.provider.FavoriteMapperProvider
-import ru.arsmarks.githubclient.di.provider.RepositoryProvider
-import ru.arsmarks.githubclient.di.provider.TransformerProvider
+import ru.arsmarks.githubclient.data.mappers.SearchMapper
+import ru.arsmarks.githubclient.data.mappers.EntityMapper
+import ru.arsmarks.githubclient.data.mappers.FavoriteMapper
+import ru.arsmarks.githubclient.data.EntityMapperProvider
+import ru.arsmarks.githubclient.data.FavoriteMapperProvider
+import ru.arsmarks.githubclient.data.RepositoryProvider
+import ru.arsmarks.githubclient.data.SearchMapperProvider
 import ru.arsmarks.githubclient.domain.GitHubRepositories
 import toothpick.config.Module
 import toothpick.ktp.binding.bind
@@ -24,8 +24,7 @@ class AppModule(context: Context) : Module() {
         bind<Router>().toInstance(cicerone.router)
         bind<NavigatorHolder>().toInstance(cicerone.getNavigatorHolder())
 
-        bind<GitHubRepositories>().toProvider(RepositoryProvider::class)
-        bind<SearchMapper>().toProvider(TransformerProvider::class)
+        bind<SearchMapper>().toProvider(SearchMapperProvider::class)
         bind<FavoriteMapper>().toProvider(FavoriteMapperProvider::class)
         bind<EntityMapper>().toProvider(EntityMapperProvider::class)
     }

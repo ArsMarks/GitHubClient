@@ -5,7 +5,7 @@ import ru.arsmarks.githubclient.data.persistence.dao.RepoDao
 import toothpick.config.Module
 import toothpick.ktp.binding.bind
 
-class DataModule : Module() {
+class DatabaseModule : Module() {
     init {
         bind<AppDatabase>()
             .toProvider(DatabaseProvider::class)

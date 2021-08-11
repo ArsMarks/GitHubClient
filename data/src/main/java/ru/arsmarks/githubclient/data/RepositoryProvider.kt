@@ -1,11 +1,10 @@
-package ru.arsmarks.githubclient.di.provider
+package ru.arsmarks.githubclient.data
 
-import ru.arsmarks.githubclient.data.GitHubRepositoriesImpl
-import ru.arsmarks.githubclient.data.SearchApi
-import ru.arsmarks.githubclient.data.SearchMapper
-import ru.arsmarks.githubclient.data.persistence.EntityMapper
-import ru.arsmarks.githubclient.data.persistence.FavoriteMapper
+import ru.arsmarks.githubclient.data.mappers.EntityMapper
+import ru.arsmarks.githubclient.data.mappers.FavoriteMapper
+import ru.arsmarks.githubclient.data.mappers.SearchMapper
 import ru.arsmarks.githubclient.data.persistence.dao.RepoDao
+import ru.arsmarks.githubclient.data.remote.SearchApi
 import ru.arsmarks.githubclient.domain.GitHubRepositories
 import toothpick.InjectConstructor
 import javax.inject.Provider

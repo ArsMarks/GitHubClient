@@ -1,13 +1,12 @@
 package ru.arsmarks.githubclient
 
 import android.app.Application
-import ru.arsmarks.githubclient.data.persistence.di.DataModule
+import ru.arsmarks.githubclient.data.persistence.di.DatabaseModule
 import ru.arsmarks.githubclient.di.AppModule
 import ru.arsmarks.githubclient.di.DI
-import ru.arsmarks.githubclient.di.NetworkModule
+import ru.arsmarks.githubclient.data.remote.di.module.NetworkModule
 import timber.log.Timber
 import toothpick.Scope
-import toothpick.Toothpick
 import toothpick.configuration.Configuration
 import toothpick.ktp.KTP
 
@@ -24,7 +23,7 @@ class BaseApp : Application() {
         scope = KTP.openScope(DI.APP_SCOPE).installModules(
             AppModule(this@BaseApp),
             NetworkModule(),
-            DataModule()
+            DatabaseModule()
         )
         if (BuildConfig.DEBUG)
             KTP.setConfiguration(Configuration.forDevelopment())
