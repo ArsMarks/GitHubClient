@@ -25,28 +25,28 @@ class MainFragment : BaseFragment(R.layout.fragment_main) {
     override fun installModules(scope: Scope) {
         scope.installModules(object : Module() {
             init {
-                bind<GitHubRepositories>().toProvider(RepositoryProvider::class)
+                bind<GitHubRepositories>().toProvider(RepositoryProvider::class).providesSingleton()
             }
         })
     }
 
     private fun configureTabs() {
-        with(binding) {
-            val viewPagerAdapter = ViewPagerAdapter(this@MainFragment).apply {
-                addFragment(SearchFragment())
-                addFragment(SavedReposFragment())
-            }
-            mainViewPager.adapter = viewPagerAdapter
-            TabLayoutMediator(mainTabLayout, mainViewPager) { tab, position ->
-                when (position) {
-                    0 -> {
-                        tab.text = "Поиск"
-                    }
-                    1 -> {
-                        tab.text = "Сохраненное"
-                    }
-                }
-            }.attach()
-        }
+//        with(binding) {
+//            val viewPagerAdapter = ViewPagerAdapter(this@MainFragment).apply {
+//                addFragment(SearchFragment())
+//                addFragment(SavedReposFragment())
+//            }
+//            mainViewPager.adapter = viewPagerAdapter
+//            TabLayoutMediator(mainTabLayout, mainViewPager) { tab, position ->
+//                when (position) {
+//                    0 -> {
+//                        tab.text = "Поиск"
+//                    }
+//                    1 -> {
+//                        tab.text = "Сохраненное"
+//                    }
+//                }
+//            }.attach()
+//        }
     }
 }

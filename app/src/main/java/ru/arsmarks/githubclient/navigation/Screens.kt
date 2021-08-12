@@ -8,6 +8,7 @@ import ru.arsmarks.githubclient.domain.domainEntity.Repository
 import ru.arsmarks.githubclient.overview.OverViewFragment
 import ru.arsmarks.githubclient.savedRepos.SavedReposFragment
 import ru.arsmarks.githubclient.search.SearchFragment
+import ru.arsmarks.githubclient.ui.TabContainerFragment
 
 object Screens {
     object Main : FragmentScreen {
@@ -28,5 +29,10 @@ object Screens {
     class OverView(private val repository: Repository) : FragmentScreen {
         override fun createFragment(factory: FragmentFactory): Fragment =
             OverViewFragment.newInstance(repository)
+    }
+
+    class Tab(private val tabName: String) : FragmentScreen {
+        override fun createFragment(factory: FragmentFactory): Fragment =
+            TabContainerFragment.getNewInstance(tabName)
     }
 }
